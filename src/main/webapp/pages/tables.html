@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" content="Unknown" >
 
     <title>SB Admin 2 - Bootstrap Admin Theme</title>
 
@@ -381,21 +381,21 @@
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
-            <div class="row" >
+            <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             DataTables Advanced Tables
                         </div>
-                        <!-- ---------------------------------------------------------------/.panel-heading -->
+                        <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div class="dataTable_wrapper" ng-controller="CustomerController">
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th>NAME</th>
-                                            <th>EMAIL</th>
-                                            <th>MOBILE(s)</th>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Mobile</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -404,6 +404,7 @@
                                             <td>{{customer.email}}</td>
                                             <td>{{customer.mobile}}</td>
                                         </tr>
+                                        
                                     </tbody>
                                 </table>
                             </div>
@@ -414,8 +415,10 @@
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
+            
         </div>
         <!-- /#page-wrapper -->
+
     </div>
     <!-- /#wrapper -->
 
@@ -443,8 +446,9 @@
         });
     });
     </script>
-<script src="../js/angular.min.js"></script>
-<script src="../js/app/customer.js"></script>
+
+    <script src="../js/angular.min.js"></script>
+    <script src="../js/app/customer.js"></script>
 </body>
 
 </html>

@@ -1,4 +1,5 @@
-angular.module('customer', [])
+angular.module('customer', []);
+angular.module('customer')
         .controller('CustomerController', function ($scope, $http) {
             $scope.customers = {};
             $scope.customer = {};
@@ -8,7 +9,12 @@ angular.module('customer', [])
 
             });
             $scope.saveCustomer = function () {
-                $http.post('/customers', $scope.customer);
+                $http.post('/customers', $scope.customers)
+                        .success(function (data) {
+                            //$scope.customer = data;
+                            //$scope.customers.content.push(data);
+                        }).error(function (data) {
+
+                });
             };
         });
-

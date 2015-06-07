@@ -9,7 +9,7 @@ angular.module('customer')
 
             });
             $scope.saveCustomer = function () {
-                $http.post('/customers', $scope.customers)
+                $http.post('/customers', $scope.customer)
                         .success(function (data) {
                             //$scope.customer = data;
                             //$scope.customers.content.push(data);

@@ -17,4 +17,36 @@ angular.module('customer')
 
                 });
             };
+            
+///////////////// Delete ///////////////////////          
+            $scope.callDeleteCustomer = function (id,name,email,mobile){
+                $scope.customerde = {'id':id,'name':name,'email':email,'mobile':mobile};
+                 $scope.deleteCustomer();
+             };
+            
+            
+            $scope.customerde = {};
+            $scope.deleteCustomer = function () {
+            $http.post('/customerde',$scope.customerde)
+                        .success(function (data) {
+
+
+                        }).error(function (data) {
+                });
+            };
+            
+///////////////// Update /////////////////////            
+            $scope.customerup = {};
+            $scope.callUpdateCustomer = function (id,name,email,mobile){
+                $scope.customerup = {'id':id,'name':name,'email':email,'mobile':mobile};
+            };
+            
+            $scope.UpdateCustomer = function (){
+                $http.post('/customerup',$scope.customerup)
+                        .success(function (data){
+                            
+                        }).error(function (data){
+                            
+                        });
+            };
         });

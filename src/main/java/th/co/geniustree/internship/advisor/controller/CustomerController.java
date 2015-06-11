@@ -34,4 +34,19 @@ public class CustomerController {
     public void saveCustomer(@Validated @RequestBody Customer customer) {
         customerRepo.save(customer);
     }
+     ////////// Delete ////////////////////
+    @RequestMapping(value = "/customerde", method = RequestMethod.POST)
+    public void deleteCustomer(@RequestBody Customer customer) {
+        customerRepo.delete(customer.getId());
+
+    }
+    /////////// Update ////////////////////
+    @RequestMapping(value = "/customerup" , method = RequestMethod.POST)
+    public void updateCustomer(@RequestBody Customer customer){
+        customerRepo.save(customer);
+    }
+    
+    
+    
+    
 }

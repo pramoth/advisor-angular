@@ -40,13 +40,4 @@ public class CustomerController {
         customerRepo.delete(customer.getId());
 
     }
-    /////////// Update ////////////////////
-    @RequestMapping(value = "/customerup" , method = RequestMethod.POST)
-    public void updateCustomer(@RequestBody Customer customer){
-        customerRepo.save(customer);
-    }
-    
-    
-    
-    
 }

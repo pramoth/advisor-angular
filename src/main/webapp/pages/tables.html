@@ -388,24 +388,24 @@
                             <form method="post">
                                 <tr class="trinput">
                                 <td><label>ID : </label></td>
-                                <td><input ng-model="customerup.id" class="form-control" disabled="false" placeholder="ID"></td>
+                                <td><input ng-model="customer.id" class="form-control" disabled="false" placeholder="ID"></td>
                             </tr>
                             <tr class="trinput">
                                 <td><label>NAME : </label></td>
-                                <td><input ng-model="customerup.name" class="form-control" placeholder="Name"></td>
+                                <td><input ng-model="customer.name" class="form-control" placeholder="Name"></td>
                             </tr>
                             <tr class="trinput">
                                 <td><label>Email : </label></td>
-                                <td><input ng-model="customerup.email" class="form-control" placeholder="example@example.com"></td>
+                                <td><input ng-model="customer.email" class="form-control" placeholder="example@example.com"></td>
                             </tr>
                             <tr class="trinput">
                                 <td><label>Mobile : </label></td>
-                                <td><input ng-model="customerup.mobile" class="form-control" placeholder="Phone Number"></td>
+                                <td><input ng-model="customer.mobile" class="form-control" placeholder="Phone Number"></td>
                             </tr>
                             <tr style="height: 60px;">
                                 <td></td>
                                 <td>
-                                    <input type="submit" value="Save" class="btn btn-success" ng-click="UpdateCustomer()">
+                                    <input type="submit" value="Save" class="btn btn-success" ng-click="saveCustomer()">
                                     <input type="reset" value="Clear" class="btn btn-warning">
                                 </td>
                                 
@@ -431,7 +431,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr class="odd gradeX" ng-repeat="cus in customers.content" >
+                                            <tr class="odd gradeX" ng-repeat="cus in customers.content">
                                                 <td>{{cus.name}}</td>
                                                 <td>{{cus.email}}</td>
                                                 <td>{{cus.mobile}}</td>

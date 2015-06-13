@@ -3,28 +3,28 @@ angular.module('customer')
         .controller('CustomerController', function ($scope, $http) {
             $scope.customers = {};
             $scope.customer = {};
-            
+
             $http.get('/customers').success(function (data) {
                 $scope.customers = data;
             }).error(function (data, status, header, config) {
 
             });
-            
-            $scope.showCustomer = function(){
-                $http.get('/customers').success(function (data) {
-                $scope.customers = data;
-            }).error(function (data, status, header, config) {
 
-            });
+            $scope.showCustomer = function () {
+                $http.get('/customers').success(function (data) {
+                    $scope.customers = data;
+                }).error(function (data, status, header, config) {
+
+                });
             };
-            
-            
+
+
 ///////////////// Update /////////////////////            
-            $scope.callUpdateCustomer = function (id,name,email,mobile){
-                $scope.customer = {'id':id,'name':name,'email':email,'mobile':mobile};
+            $scope.callUpdateCustomer = function (id, name, email, mobile) {
+                $scope.customer = {'id': id, 'name': name, 'email': email, 'mobile': mobile};
             };
-                        
-            
+
+
 ////////////// Save and Update /////////////////////// 
             $scope.saveCustomer = function () {
                 $scope.showCustomer();
@@ -32,23 +32,24 @@ angular.module('customer')
                         .success(function (data) {
                             $scope.showCustomer();
                         }).error(function (data) {
-
+                            console.log(data);
+                    $scope.errors = data;
                 });
-                
+
             };
-            
-            
+
+
 ///////////////// Delete ///////////////////////          
-            $scope.callDeleteCustomer = function (id,name,email,mobile){
-                $scope.customerde = {'id':id,'name':name,'email':email,'mobile':mobile};
+            $scope.callDeleteCustomer = function (id, name, email, mobile) {
+                $scope.customerde = {'id': id, 'name': name, 'email': email, 'mobile': mobile};
                 $scope.deleteCustomer();
-              };
-            
+            };
+
             $scope.customerde = {};
             $scope.deleteCustomer = function () {
-            $http.post('/customerde',$scope.customerde)
+                $http.post('/customerde', $scope.customerde)
                         .success(function (data) {
-                             $scope.showCustomer();
+                            $scope.showCustomer();
                         }).error(function (data) {
                 });
             };

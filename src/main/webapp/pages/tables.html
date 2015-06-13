@@ -388,19 +388,34 @@
                             <form method="post">
                                 <tr class="trinput">
                                 <td><label>ID : </label></td>
-                                <td><input ng-model="customer.id" class="form-control" disabled="false" placeholder="ID"></td>
+                                <td><input ng-model="customer.id" class="form-control" disabled="false" placeholder="ID">
+                                    
+                                </td>
                             </tr>
                             <tr class="trinput">
                                 <td><label>NAME : </label></td>
-                                <td><input ng-model="customer.name" class="form-control" placeholder="Name"></td>
+                                <td><input ng-model="customer.name" class="form-control" placeholder="Name">
+                                    <span >
+                                        {{errors.violations.name.message}}
+                                    </span>
+                                </td>
                             </tr>
                             <tr class="trinput">
                                 <td><label>Email : </label></td>
-                                <td><input ng-model="customer.email" class="form-control" placeholder="example@example.com"></td>
+                                <td><input ng-model="customer.email" class="form-control" placeholder="example@example.com">
+                                <span >
+                                        {{errors.violations.email.message}}
+                                    </span></td>
                             </tr>
                             <tr class="trinput">
                                 <td><label>Mobile : </label></td>
-                                <td><input ng-model="customer.mobile" class="form-control" placeholder="Phone Number"></td>
+                                <td><input ng-model="customer.mobile" class="form-control" placeholder="Phone Number">
+                                    <span style="position:relative">
+                                    <span ng-show="errors.violations.mobile" class="alert alert-danger">
+                                        {{errors.violations.mobile.message}}
+                                    </span>
+                                        </span>
+                                </td>
                             </tr>
                             <tr style="height: 60px;">
                                 <td></td>

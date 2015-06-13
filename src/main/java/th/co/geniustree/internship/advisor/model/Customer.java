@@ -14,6 +14,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
+import javax.validation.constraints.NotNull;
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
 
 /**
  *
@@ -25,8 +28,12 @@ public class Customer implements Serializable{
     @SequenceGenerator(name = "Customer",sequenceName = "CUSTOMER_SEQ",allocationSize = 1)
     @GeneratedValue(generator = "Customer",strategy = GenerationType.SEQUENCE)
     private BigInteger id;
+    @NotBlank
     private String name;
+    @Email
+    @NotBlank
     private String email;
+    @NotBlank
     private String mobile;
 
     public BigInteger getId() {

@@ -30,7 +30,7 @@ public class Customer implements Serializable{
     private BigInteger id;
     @NotBlank(message = "name is not empty")
     private String name;
-    @Email(message = "format Incompatible")
+    @Email(message = "format Incompatible (Ex. xxx@xxx.com)")
     @NotBlank(message = "email is not empty")
     private String email;
     @NotBlank(message = "mobile is not empty")

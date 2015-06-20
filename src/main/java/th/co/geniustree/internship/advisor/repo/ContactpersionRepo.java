@@ -13,6 +13,6 @@ import th.co.geniustree.internship.advisor.model.ContactPersion;
  *
  * @author oom
  */
-public interface ContactpersionRepo extends JpaRepository<ContactPersion, String>{
+public interface ContactpersionRepo extends JpaRepository<ContactPersion, Integer>{
     
 }

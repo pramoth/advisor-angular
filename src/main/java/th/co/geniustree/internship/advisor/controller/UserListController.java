@@ -7,6 +7,7 @@ package th.co.geniustree.internship.advisor.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,7 +25,7 @@ public class UserListController {
     private UserRepo userRepo;
 
     @RequestMapping(value = "/users")
-    public Page<User> searchByNameTHOrEmail(@RequestParam String keyword) {
-        return userRepo.findByNameTHOrByEmail(keyword, keyword);
+    public Page<User> searchByNameTHOrEmail(@RequestParam String keyword, Pageable pageable) {
+        return userRepo.findByNameTHOrEmail(keyword, keyword, pageable);
     }
 }

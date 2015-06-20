@@ -8,18 +8,24 @@ package th.co.geniustree.internship.advisor.model;
 import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 
 /**
  *
  * @author oom
  */
 @Entity
-public class Contactpersion implements Serializable{
+public class ContactPersion implements Serializable{
     @Id
+    @SequenceGenerator(name = "ContactPersion",sequenceName = "CONTACTPERSION_SEQ",allocationSize = 1)
+    @GeneratedValue(generator = "ContactPersion",strategy = GenerationType.SEQUENCE)
+    private Integer id;
     private String name;
-    private Integer telephonenumber;
-    private String reletion;
+    private Integer telephoneNumber;
+    private String relation;
 
     public String getName() {
         return name;
@@ -30,25 +36,33 @@ public class Contactpersion implements Serializable{
     }
 
     public Integer getTelephonenumber() {
-        return telephonenumber;
+        return telephoneNumber;
     }
 
     public void setTelephonenumber(Integer telephonenumber) {
-        this.telephonenumber = telephonenumber;
+        this.telephoneNumber = telephonenumber;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getReletion() {
-        return reletion;
+        return relation;
     }
 
     public void setReletion(String reletion) {
-        this.reletion = reletion;
+        this.relation = reletion;
     }
 
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 79 * hash + Objects.hashCode(this.name);
+        hash = 71 * hash + Objects.hashCode(this.id);
         return hash;
     }
 
@@ -60,11 +74,13 @@ public class Contactpersion implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Contactpersion other = (Contactpersion) obj;
-        if (!Objects.equals(this.name, other.name)) {
+        final ContactPersion other = (ContactPersion) obj;
+        if (!Objects.equals(this.id, other.id)) {
             return false;
         }
         return true;
     }
+
+   
     
 }

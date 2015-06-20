@@ -7,12 +7,12 @@ package th.co.geniustree.internship.advisor.repo;
 
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import th.co.geniustree.internship.advisor.model.Contactpersion;
+import th.co.geniustree.internship.advisor.model.ContactPersion;
 
 /**
  *
  * @author oom
  */
-public interface ContactpersionRepo extends JpaRepository<Contactpersion, String>{
+public interface ContactpersionRepo extends JpaRepository<ContactPersion, Integer>{
     
 }

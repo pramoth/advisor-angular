@@ -10,12 +10,14 @@ import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author kekhuay
  */
 @Entity
+@Table(name = "AUTHORITY")
 public class Authority implements Serializable {
     @Id
     @Column(name = "ROLES")

@@ -59,16 +59,27 @@ public class User implements Serializable, UserDetails {
     private String workstatus;
     private boolean enabled = true;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "CONTACTPERSON", nullable = true)
+    @JoinColumn(name = "CONTACTPERSON_ID", nullable = true)
     private ContactPersion contactPersion;
+    
     @ManyToMany
     private List<Authority> authorities;
-    @ManyToOne
-    @JoinColumn(name = "department_id")
-    private Department department;
     
+    @ManyToOne
+    @JoinColumn(name = "DEPARTMENT_ID")
+    private Department department;
+
     @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "BANKACCOUNT_ID", nullable = true)
     private BankAccount bankAccount;
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
 
     public BankAccount getBankAccount() {
         return bankAccount;
@@ -78,7 +89,6 @@ public class User implements Serializable, UserDetails {
         this.bankAccount = bankAccount;
     }
 
-    
     public Department getDepartment() {
         return department;
     }
@@ -86,7 +96,6 @@ public class User implements Serializable, UserDetails {
     public void setDepartment(Department department) {
         this.department = department;
     }
-
 
     public Integer getId() {
         return id;

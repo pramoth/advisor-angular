@@ -12,6 +12,6 @@ import th.co.geniustree.internship.advisor.model.Department;
  *
  * @author User
  */
-public interface DepartmentRepo extends JpaRepository<Department, String>{
+public interface DepartmentRepo extends JpaRepository<Department, Integer>{
     
 }

@@ -8,11 +8,16 @@ package th.co.geniustree.internship.advisor.model;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import org.springframework.security.core.GrantedAuthority;
@@ -23,7 +28,8 @@ import org.springframework.security.core.userdetails.UserDetails;
  * @author User
  */
 @Entity
-public class User implements Serializable,UserDetails{
+public class User implements Serializable, UserDetails {
+
     @Id
     @SequenceGenerator(name = "user", sequenceName = "user_SEQ", allocationSize = 1)
     @GeneratedValue(generator = "user", strategy = GenerationType.SEQUENCE)
@@ -37,7 +43,7 @@ public class User implements Serializable,UserDetails{
     private Date birthday;
     private String sex;
     private String blood;
-    private String soldierstatus; 
+    private String soldierstatus;
     private String marrystatus;
     private String nation;
     private String race;
@@ -50,6 +56,12 @@ public class User implements Serializable,UserDetails{
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date endwork;
     private String workstatus;
+    private boolean enabled = true;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "CONTACTPERSON", nullable = true)
+    private ContactPersion contactPersion;
+    @ManyToMany
+    private List<Authority> authorities;
 
     public Integer getId() {
         return id;
@@ -203,6 +215,18 @@ public class User implements Serializable,UserDetails{
         this.workstatus = workstatus;
     }
 
+    public ContactPersion getContactPersion() {
+        return contactPersion;
+    }
+
+    public void setContactPersion(ContactPersion contactPersion) {
+        this.contactPersion = contactPersion;
+    }
+
+    public void setAuthorities(List<Authority> authorities) {
+        this.authorities = authorities;
+    }
+
     @Override
     public int hashCode() {
         int hash = 7;
@@ -224,45 +248,40 @@ public class User implements Serializable,UserDetails{
         }
         return true;
     }
-   
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return authorities;
     }
 
     @Override
     public String getPassword() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return password;
     }
 
     @Override
     public String getUsername() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return email;
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return enabled;
     }
-    
-    
-    
 
-   
-    
 }

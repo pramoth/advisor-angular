@@ -11,6 +11,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import org.springframework.security.core.GrantedAuthority;
 
 /**
  *
@@ -18,7 +19,8 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "AUTHORITY")
-public class Authority implements Serializable {
+public class Authority implements GrantedAuthority, Serializable {
+
     @Id
     @Column(name = "ROLES")
     private String role;
@@ -51,5 +53,10 @@ public class Authority implements Serializable {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public String getAuthority() {
+        return role;
     }
 }

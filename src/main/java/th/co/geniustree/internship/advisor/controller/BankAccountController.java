@@ -39,7 +39,7 @@ public class BankAccountController {
     }
     
     
-    @RequestMapping(value = "bankaccountsdelete" , method = RequestMethod.POST)
+    @RequestMapping(value = "/bankaccountsdelete" , method = RequestMethod.POST)
     public void deleteBankAccount(@RequestBody BankAccount bankaccount){
        bankaccountRopo.delete(bankaccount);
     }

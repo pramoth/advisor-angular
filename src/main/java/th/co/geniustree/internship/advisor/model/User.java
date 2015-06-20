@@ -11,6 +11,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,6 +22,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -35,27 +38,55 @@ public class User implements Serializable, UserDetails {
     @SequenceGenerator(name = "user", sequenceName = "user_SEQ", allocationSize = 1)
     @GeneratedValue(generator = "user", strategy = GenerationType.SEQUENCE)
     private Integer id;
+    
+    @NotBlank(message = "please input password")
+    @Column(name = "password" , nullable = false)
     private String password;
+   
+    @Column(name = "email" , nullable = false , unique = true)
+    @NotBlank(message = "please input email")
+    @Email(message = "format Incompatible (Ex. xxx@xxx.com)")
     private String email;
+   
+    @Column(name = "pid" , nullable = false , unique = true)
+    @NotBlank(message = "please input password")
     private String pid;
+   
+    @Column(name = "nameTH" , nullable = false)
+    @NotBlank(message = "please input name")
     private String nameTH;
+    
     private String nameENG;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date birthday;
+   
     private String sex;
     private String blood;
     private String soldierstatus;
     private String marrystatus;
+    @Column(name = "nation" , nullable = false)
+    @NotBlank(message = "please input nation")
     private String nation;
+   
+    @Column(name = "race" , nullable = false)
+    @NotBlank(message = "please input race")
     private String race;
+   
     private String addressofpid;
+    @Column(name = "address" , nullable = false)
+    @NotBlank(message = "please input address")
     private String address;
+   
     private String tel;
+    @Column(name = "mobile" , nullable = false)
+    @NotBlank(message = "please input mobile")
     private String mobile;
+    
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date startwork;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date endwork;
+   
     private String workstatus;
     private boolean enabled = true;
     @OneToOne(cascade = CascadeType.ALL)

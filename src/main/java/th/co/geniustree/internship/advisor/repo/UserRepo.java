@@ -6,6 +6,7 @@
 package th.co.geniustree.internship.advisor.repo;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.security.core.userdetails.UserDetails;
 import th.co.geniustree.internship.advisor.model.User;
 
 /**
@@ -13,5 +14,7 @@ import th.co.geniustree.internship.advisor.model.User;
  * @author User
  */
 public interface UserRepo extends JpaRepository<User, Integer>{
+
+    public UserDetails findByEmail(String username);
     
 }

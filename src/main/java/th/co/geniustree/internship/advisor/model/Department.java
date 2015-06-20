@@ -6,11 +6,15 @@
 package th.co.geniustree.internship.advisor.model;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 /**
@@ -22,8 +26,19 @@ public class Department implements Serializable{
     @Id
     @SequenceGenerator(name = "Department",sequenceName = "DEPARTMENT_SEQ",allocationSize = 1)
     @GeneratedValue(generator = "Department",strategy = GenerationType.SEQUENCE)
+    @Column(name = "department_id")
     private int idDepartment;
     private String departmentName;
+    @OneToMany(mappedBy = "department")
+    private List<User> Users;
+
+    public List<User> getUsers() {
+        return Users;
+    }
+
+    public void setUsers(List<User> Users) {
+        this.Users = Users;
+    }
 
     public int getIdDepartment() {
         return idDepartment;

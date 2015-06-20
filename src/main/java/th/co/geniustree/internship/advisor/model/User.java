@@ -17,6 +17,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
@@ -62,6 +63,30 @@ public class User implements Serializable, UserDetails {
     private ContactPersion contactPersion;
     @ManyToMany
     private List<Authority> authorities;
+    @ManyToOne
+    @JoinColumn(name = "department_id")
+    private Department department;
+    
+    @OneToOne(cascade = CascadeType.ALL)
+    private BankAccount bankAccount;
+
+    public BankAccount getBankAccount() {
+        return bankAccount;
+    }
+
+    public void setBankAccount(BankAccount bankAccount) {
+        this.bankAccount = bankAccount;
+    }
+
+    
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
 
     public Integer getId() {
         return id;

@@ -16,6 +16,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Size;
+import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.validation.annotation.Validated;
 
 /**
  *
@@ -28,6 +32,8 @@ public class Department implements Serializable{
     @GeneratedValue(generator = "Department",strategy = GenerationType.SEQUENCE)
     @Column(name = "department_id")
     private int idDepartment;
+    @NotBlank(message = "name is not empty")
+    @Size(max = 250)
     private String departmentName;
     @OneToMany(mappedBy = "department")
     private List<User> Users;

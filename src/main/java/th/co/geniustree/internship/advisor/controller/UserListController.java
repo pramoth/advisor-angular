@@ -24,7 +24,7 @@ public class UserListController {
     @Autowired
     private UserRepo userRepo;
 
-    @RequestMapping(value = "/users")
+    @RequestMapping(value = "/users/search")
     public Page<User> searchByNameTHOrEmail(@RequestParam String keyword, Pageable pageable) {
         return userRepo.findByNameTHOrEmail(keyword, keyword, pageable);
     }

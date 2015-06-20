@@ -31,9 +31,9 @@ import th.co.geniustree.internship.advisor.model.User;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = App.class)
 @Transactional(propagation = Propagation.REQUIRED)
-public class UserRepoTest {
+public class UserRepoIT {
 
-    private static final Logger LOG = LoggerFactory.getLogger(UserRepoTest.class);
+    private static final Logger LOG = LoggerFactory.getLogger(UserRepoIT.class);
     @Autowired
     private UserRepo userRepo;
     @Autowired

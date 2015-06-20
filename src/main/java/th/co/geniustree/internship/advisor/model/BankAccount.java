@@ -1,41 +1,24 @@
-
 package th.co.geniustree.internship.advisor.model;
 
 import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 
 @Entity
-public class Bankaddcount implements Serializable{
+public class BankAccount implements Serializable {
+
     @Id
+    @SequenceGenerator(name = "BankAccount", sequenceName = "BANKACCOUNT_SEQ", allocationSize = 1)
+    @GeneratedValue(generator = "BankAccount", strategy = GenerationType.SEQUENCE)
     private Integer id;
     private String addcountid;
     private String addcountname;
     private String bankname;
     private String addcounttype;
-
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 83 * hash + Objects.hashCode(this.id);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Bankaddcount other = (Bankaddcount) obj;
-        if (!Objects.equals(this.id, other.id)) {
-            return false;
-        }
-        return true;
-    }
 
     public Integer getId() {
         return id;
@@ -76,6 +59,27 @@ public class Bankaddcount implements Serializable{
     public void setAddcounttype(String addcounttype) {
         this.addcounttype = addcounttype;
     }
-    
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 83 * hash + Objects.hashCode(this.id);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final BankAccount other = (BankAccount) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        return true;
+    }
+
 }
-    

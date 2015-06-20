@@ -8,7 +8,10 @@ package th.co.geniustree.internship.advisor.model;
 import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 
 /**
  *
@@ -17,29 +20,31 @@ import javax.persistence.Id;
 @Entity
 public class Department implements Serializable{
     @Id
-    private String idDepartment;
-    private String position;
+    @SequenceGenerator(name = "Department",sequenceName = "DEPARTMENT_SEQ",allocationSize = 1)
+    @GeneratedValue(generator = "Department",strategy = GenerationType.SEQUENCE)
+    private int idDepartment;
+    private String departmentName;
 
-    public String getIdDepartment() {
+    public int getIdDepartment() {
         return idDepartment;
     }
 
-    public void setIdDepartment(String idDepartment) {
+    public void setIdDepartment(int idDepartment) {
         this.idDepartment = idDepartment;
     }
 
-    public String getPosition() {
-        return position;
+    public String getDepartmentName() {
+        return departmentName;
     }
 
-    public void setPosition(String position) {
-        this.position = position;
+    public void setDepartmentName(String departmentName) {
+        this.departmentName = departmentName;
     }
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 53 * hash + Objects.hashCode(this.idDepartment);
+        int hash = 5;
+        hash = 83 * hash + this.idDepartment;
         return hash;
     }
 
@@ -52,12 +57,13 @@ public class Department implements Serializable{
             return false;
         }
         final Department other = (Department) obj;
-        if (!Objects.equals(this.idDepartment, other.idDepartment)) {
+        if (this.idDepartment != other.idDepartment) {
             return false;
         }
         return true;
     }
-
+    
+    
   
     
 }

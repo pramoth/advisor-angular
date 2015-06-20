@@ -15,6 +15,6 @@ import th.co.geniustree.internship.advisor.model.User;
  */
 public interface UserRepo extends JpaRepository<User, Integer>{
 
-    public UserDetails findByEmail(String username);
+    public User findByEmail(String username);
     
 }

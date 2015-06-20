@@ -73,9 +73,5 @@ angular.module('customer')
                document.getElementById('popup-delete').style.display = 'none';
                 document.getElementById('warpbody').style.display = 'none';
            };
-           $scope.closeErrorMessage = function (){
-             $scope.showErrorMessageName = false;
-             $scope.showErrorMessageEmail = false;
-             $scope.showErrorMessageMobile = false;
-           };
+           
         });

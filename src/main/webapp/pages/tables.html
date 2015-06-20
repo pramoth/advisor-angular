@@ -28,7 +28,7 @@
 
         <!-- Custom Fonts -->
         <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-         
+
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -387,40 +387,40 @@
                         <table>
                             <form method="post">
                                 <tr class="trinput">
-                                <td><label>ID : </label></td>
-                                <td><input ng-model="customer.id" class="form-control" disabled="false" placeholder="ID">
-                                    
-                                </td>
-                            </tr>
-                            <tr class="trinput">
-                                <td><label>NAME : </label></td>
-                                <td><input ng-model="customer.name" class="form-control" placeholder="Name"></td>
-                                <td><span ng-show="errors.violations.name.message" class="alert alert-danger" id="message-error">
-                                        {{errors.violations.name.message}}
-                                    </span>  </td>
-                            </tr>
-                            <tr class="trinput">
-                                <td><label>Email : </label></td>
-                                <td><input ng-model="customer.email" class="form-control" placeholder="example@example.com"></td>
-                                <td><span ng-show="errors.violations.email.message" class="alert alert-danger" id="message-error">
-                                        {{errors.violations.email.message}}
-                                    </span>  </td> 
-                            </tr>
-                            <tr class="trinput">
-                                <td><label>Mobile : </label></td>
-                                <td><input ng-model="customer.mobile" class="form-control" placeholder="Phone Number"></td>
-                                <td><span ng-show="errors.violations.mobile.message" class="alert alert-danger" id="message-error">
-                                        {{errors.violations.mobile.message}}
-                                    </span>  </td>
-                            </tr>
-                            <tr style="height: 60px;">
-                                <td></td>
-                                <td>
-                                    <input type="submit" value="Save" class="btn btn-success" ng-click="saveCustomer()">
-                                    <input type="reset" value="Clear" class="btn btn-warning" ng-click="Clear()">
-                                </td>
-                                
-                            </tr>
+                                    <td><label>ID : </label></td>
+                                    <td><input ng-model="customer.id" class="form-control" disabled="false" placeholder="ID">
+
+                                    </td>
+                                </tr>
+                                <tr class="trinput">
+                                    <td><label>NAME : </label></td>
+                                    <td><input ng-model="customer.name" class="form-control" placeholder="Name"></td>
+                                    <td><span ng-show="errors.violations.name.message" class="alert alert-danger" id="message-error">
+                                            {{errors.violations.name.message}}
+                                        </span>  </td>
+                                </tr>
+                                <tr class="trinput">
+                                    <td><label>Email : </label></td>
+                                    <td><input ng-model="customer.email" class="form-control" placeholder="example@example.com"></td>
+                                    <td><span ng-show="errors.violations.email.message" class="alert alert-danger" id="message-error">
+                                            {{errors.violations.email.message}}
+                                        </span>  </td> 
+                                </tr>
+                                <tr class="trinput">
+                                    <td><label>Mobile : </label></td>
+                                    <td><input ng-model="customer.mobile" class="form-control" placeholder="Phone Number"></td>
+                                    <td><span ng-show="errors.violations.mobile.message" class="alert alert-danger" id="message-error">
+                                            {{errors.violations.mobile.message}}
+                                        </span>  </td>
+                                </tr>
+                                <tr style="height: 60px;">
+                                    <td></td>
+                                    <td>
+                                        <input type="submit" value="Save" class="btn btn-success" ng-click="saveCustomer()">
+                                        <input type="reset" value="Clear" class="btn btn-warning" ng-click="Clear()">
+                                    </td>
+
+                                </tr>
                             </form>
                         </table>
 
@@ -450,8 +450,8 @@
                                                     <form method="post">
                                                         <input type="submit" value="Delete" class="btn btn-danger" ng-click="showDialogDelete(cus.id,
                                                                                 cus.name, cus.email, cus.mobile)"> 
-                                                                    <input type="submit" class="btn btn-primary" value="Update" ng-click="callUpdateCustomer(cus.id,
-                                                                                cus.name, cus.email, cus.mobile)">
+                                                        <input type="submit" class="btn btn-primary" value="Update" ng-click="callUpdateCustomer(cus.id,
+                                                                                            cus.name, cus.email, cus.mobile)">
                                                     </form>
                                                 </td>
 
@@ -471,25 +471,25 @@
 
         </div>
         <!-- /#wrapper -->
-        
-       
+
+
         <!-- PopupDelete -->
-       
+
         <div id="popup-delete" class="shake">
-            
+
             <div id="hdelete"><font size='10' color='white'>Delete</font></div>
-            
+
             <hr/>
             <div id="delete-detail">
                 <font size="4">{{"ID : "+customerde.id+"   NAME : "+customerde.name}}</font>
             </div>
             <hr/>
-                <a href="#" id="btn-delete" ng-click="deleteCustomer()">Delete</a>
-                <a href="#" id="btn-cancel" ng-click="closeDialogDelete()" >Cancel</a>
+            <a href="#" id="btn-delete" ng-click="deleteCustomer()">Delete</a>
+            <a href="#" id="btn-cancel" ng-click="closeDialogDelete()" >Cancel</a>
         </div>
         <!-- warpbody -->
         <div id="warpbody">
-            
+
         </div>
 
         <!-- jQuery -->
@@ -510,11 +510,11 @@
 
         <!-- Page-Level Demo Scripts - Tables - Use for reference -->
         <script>
-                                                            $(document).ready(function () {
-                                                                $('#dataTables-example').DataTable({
-                                                                    responsive: true
-                                                                });
-                                                            });
+                            $(document).ready(function () {
+                                $('#dataTables-example').DataTable({
+                                    responsive: true
+                                });
+                            });
         </script>
 
         <script src="../js/angular.min.js"></script>
@@ -536,7 +536,7 @@
             }
             .alert-danger{
                 margin-left: 10px;
-               padding: 7px 6px 7px 6px;
+                padding: 7px 6px 7px 6px;
             }
             #popup-delete{
                 position: fixed;
@@ -551,7 +551,7 @@
                 z-index: 1001;
                 border-radius: 15px;
                 box-shadow: 0px 10px 50px;
-                
+
             }
             #warpbody{
                 position: fixed;
@@ -609,7 +609,7 @@
                 position: relative;
                 top: 2px;
             }
-            
+
         </style>
 
 

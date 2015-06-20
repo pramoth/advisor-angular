@@ -12,6 +12,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  *
  * @author Jasin007
  */
-public interface Bankaddcount extends JpaRepository<Bankaddcount, Integer>{
+public interface BankAccount extends JpaRepository<BankAccount, Integer>{
     
 }

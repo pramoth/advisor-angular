@@ -16,6 +16,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.NotBlank;
@@ -26,15 +27,16 @@ import org.springframework.validation.annotation.Validated;
  * @author User
  */
 @Entity
+@Table(name="DEPARTMENT")
 public class Department implements Serializable{
     @Id
     @SequenceGenerator(name = "Department",sequenceName = "DEPARTMENT_SEQ",allocationSize = 1)
     @GeneratedValue(generator = "Department",strategy = GenerationType.SEQUENCE)
-    @Column(name = "department_id")
-    private int idDepartment;
+    @Column(name = "id")
+    private int id;
     @NotBlank(message = "name is not empty")
     @Size(max = 250)
-    private String departmentName;
+    private String name;
     @OneToMany(mappedBy = "department")
     private List<User> Users;
 
@@ -46,26 +48,26 @@ public class Department implements Serializable{
         this.Users = Users;
     }
 
-    public int getIdDepartment() {
-        return idDepartment;
+    public int getId() {
+        return id;
     }
 
-    public void setIdDepartment(int idDepartment) {
-        this.idDepartment = idDepartment;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getDepartmentName() {
-        return departmentName;
+    public String getName() {
+        return name;
     }
 
-    public void setDepartmentName(String departmentName) {
-        this.departmentName = departmentName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 83 * hash + this.idDepartment;
+        hash = 83 * hash + this.id;
         return hash;
     }
 
@@ -78,7 +80,7 @@ public class Department implements Serializable{
             return false;
         }
         final Department other = (Department) obj;
-        if (this.idDepartment != other.idDepartment) {
+        if (this.id != other.id) {
             return false;
         }
         return true;

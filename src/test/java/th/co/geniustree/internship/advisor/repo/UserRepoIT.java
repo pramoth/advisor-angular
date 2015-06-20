@@ -70,7 +70,7 @@ public class UserRepoIT {
     @Test
     public void userWithDepartmentMustBeSaveableToDB() {
         Department dep = new Department();
-        dep.setDepartmentName("Software Development");
+        dep.setName("Software Development");
         dep = departmentRepo.save(dep);
         User user = createUser();
         user.setDepartment(dep);

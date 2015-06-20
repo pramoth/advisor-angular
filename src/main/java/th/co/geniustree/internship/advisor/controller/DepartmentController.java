@@ -34,8 +34,8 @@ public class DepartmentController {
     public void saveDepartment(@Validated @RequestBody Department department){
         departmentRepo.save(department);
     }
-    @RequestMapping(value = "/department",method = RequestMethod.DELETE)
+    @RequestMapping(value = "/departmentdelete",method = RequestMethod.POST)
     public void deleteDepartment(@RequestBody Department department){
-        departmentRepo.delete(department.getIdDepartment());
+        departmentRepo.delete(department.getId());
     }
 }

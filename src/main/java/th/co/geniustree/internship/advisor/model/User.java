@@ -7,11 +7,14 @@ package th.co.geniustree.internship.advisor.model;
 
 import java.io.Serializable;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.Date;
 import java.util.Objects;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Temporal;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -22,12 +25,15 @@ import org.springframework.security.core.userdetails.UserDetails;
 @Entity
 public class User implements Serializable,UserDetails{
     @Id
+    @SequenceGenerator(name = "user", sequenceName = "user_SEQ", allocationSize = 1)
+    @GeneratedValue(generator = "user", strategy = GenerationType.SEQUENCE)
     private Integer id;
     private String password;
     private String email;
     private String pid;
-    private String nameth;
-    private String nameeng;
+    private String nameTH;
+    private String nameENG;
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date birthday;
     private String sex;
     private String blood;
@@ -39,8 +45,10 @@ public class User implements Serializable,UserDetails{
     private String address;
     private String tel;
     private String mobile;
-    private String startwork;
-    private String endwork;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date startwork;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date endwork;
     private String workstatus;
 
     public Integer getId() {
@@ -67,20 +75,20 @@ public class User implements Serializable,UserDetails{
         this.pid = pid;
     }
 
-    public String getNameth() {
-        return nameth;
+    public String getNameTH() {
+        return nameTH;
     }
 
-    public void setNameth(String nameth) {
-        this.nameth = nameth;
+    public void setNameTH(String nameth) {
+        this.nameTH = nameth;
     }
 
-    public String getNameeng() {
-        return nameeng;
+    public String getNameENG() {
+        return nameENG;
     }
 
-    public void setNameeng(String nameeng) {
-        this.nameeng = nameeng;
+    public void setNameENG(String nameeng) {
+        this.nameENG = nameeng;
     }
 
     public Date getBirthday() {
@@ -171,19 +179,19 @@ public class User implements Serializable,UserDetails{
         this.mobile = mobile;
     }
 
-    public String getStartwork() {
+    public Date getStartwork() {
         return startwork;
     }
 
-    public void setStartwork(String startwork) {
+    public void setStartwork(Date startwork) {
         this.startwork = startwork;
     }
 
-    public String getEndwork() {
+    public Date getEndwork() {
         return endwork;
     }
 
-    public void setEndwork(String endwork) {
+    public void setEndwork(Date endwork) {
         this.endwork = endwork;
     }
 

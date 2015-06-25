@@ -24,6 +24,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -34,74 +35,85 @@ import org.springframework.security.core.userdetails.UserDetails;
 @Entity
 public class User implements Serializable, UserDetails {
 
-    @Id
+    
     @SequenceGenerator(name = "user", sequenceName = "user_SEQ", allocationSize = 1)
     @GeneratedValue(generator = "user", strategy = GenerationType.SEQUENCE)
     private Integer id;
-    
+
     @NotBlank(message = "please input password")
-    @Column(name = "password" , nullable = false)
+    @Column(name = "password", nullable = false)
     private String password;
-   
-    @Column(name = "email" , nullable = false , unique = true)
+
+    @Id
+    @Column(name = "email", nullable = false, unique = true)
     @NotBlank(message = "please input email")
     @Email(message = "format Incompatible (Ex. xxx@xxx.com)")
     private String email;
-   
-    @Column(name = "pid" , nullable = false , unique = true)
-    @NotBlank(message = "please input password")
+
+    @Column(name = "pid", nullable = false)
+    @NotBlank(message = "please input person id")
     private String pid;
-   
-    @Column(name = "nameTH" , nullable = false)
-    @NotBlank(message = "please input name")
-    private String nameTH;
+
+    @Column(name = "namethai", nullable = false)
+    @NotBlank(message = "please input nameTH")
+    private String namethai;
+
+    private String nameeng;
     
-    private String nameENG;
     @Temporal(javax.persistence.TemporalType.DATE)
-    private Date birthday;
-   
+    private Date birthdate;
+
+    @NotBlank(message = "please input sex")
     private String sex;
+
+    @NotBlank(message = "please input blood")
     private String blood;
     private String soldierstatus;
     private String marrystatus;
-    @Column(name = "nation" , nullable = false)
+
+    @Column(name = "nation", nullable = false)
     @NotBlank(message = "please input nation")
     private String nation;
-   
-    @Column(name = "race" , nullable = false)
+
+    @Column(name = "race", nullable = false)
     @NotBlank(message = "please input race")
     private String race;
-   
+
     private String addressofpid;
-    @Column(name = "address" , nullable = false)
+    @Column(name = "address", nullable = false)
     @NotBlank(message = "please input address")
     private String address;
-   
+
     private String tel;
-    @Column(name = "mobile" , nullable = false)
-    @NotBlank(message = "please input mobile")
-    private String mobile;
-    
+    @Column(name = "phonenumber", nullable = false)
+    @NotBlank(message = "please input PhoneNumber")
+    private String phonenumber;
+
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date startwork;
+
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date endwork;
-   
+
+    @NotBlank(message = "please input workstatus")
     private String workstatus;
+
+    private String image;
     private boolean enabled = true;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "CONTACTPERSON_ID", nullable = true)
-    private ContactPersion contactPersion;
     
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "CONTACTPERSION_ID")
+    private ContactPersion contactPersion;
+
     @ManyToMany
     private List<Authority> authorities;
-    
+
     @ManyToOne
     @JoinColumn(name = "DEPARTMENT_ID")
     private Department department;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "BANKACCOUNT_ID", nullable = true)
+    @JoinColumn(name = "BANKACCOUNT_EMAIL", nullable = true)
     private BankAccount bankAccount;
 
     public void setPassword(String password) {
@@ -152,28 +164,45 @@ public class User implements Serializable, UserDetails {
         this.pid = pid;
     }
 
-    public String getNameTH() {
-        return nameTH;
+    public String getNamethai() {
+        return namethai;
     }
 
-    public void setNameTH(String nameth) {
-        this.nameTH = nameth;
+    public void setNamethai(String namethai) {
+        this.namethai = namethai;
     }
 
-    public String getNameENG() {
-        return nameENG;
+    public String getNameeng() {
+        return nameeng;
     }
 
-    public void setNameENG(String nameeng) {
-        this.nameENG = nameeng;
+    public void setNameeng(String nameeng) {
+        this.nameeng = nameeng;
     }
 
-    public Date getBirthday() {
-        return birthday;
+    public Date getStartwork() {
+        return startwork;
     }
 
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
+    public void setStartwork(Date startwork) {
+        this.startwork = startwork;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+   
+    public Date getBirthdate() {
+        return birthdate;
+    }
+
+    public void setBirthdate(Date birthdate) {
+        this.birthdate = birthdate;
     }
 
     public String getSex() {
@@ -248,20 +277,12 @@ public class User implements Serializable, UserDetails {
         this.tel = tel;
     }
 
-    public String getMobile() {
-        return mobile;
+    public String getPhonenumber() {
+        return phonenumber;
     }
 
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
-    }
-
-    public Date getStartwork() {
-        return startwork;
-    }
-
-    public void setStartwork(Date startwork) {
-        this.startwork = startwork;
+    public void setPhonenumber(String phonenumber) {
+        this.phonenumber = phonenumber;
     }
 
     public Date getEndwork() {
@@ -280,14 +301,7 @@ public class User implements Serializable, UserDetails {
         this.workstatus = workstatus;
     }
 
-    public ContactPersion getContactPersion() {
-        return contactPersion;
-    }
-
-    public void setContactPersion(ContactPersion contactPersion) {
-        this.contactPersion = contactPersion;
-    }
-
+  
     public void setAuthorities(List<Authority> authorities) {
         this.authorities = authorities;
     }

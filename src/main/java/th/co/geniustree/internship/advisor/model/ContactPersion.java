@@ -7,10 +7,13 @@ package th.co.geniustree.internship.advisor.model;
 
 import java.io.Serializable;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
 /**
@@ -23,10 +26,12 @@ public class ContactPersion implements Serializable{
     @SequenceGenerator(name = "ContactPersion",sequenceName = "CONTACTPERSION_SEQ",allocationSize = 1)
     @GeneratedValue(generator = "ContactPersion",strategy = GenerationType.SEQUENCE)
     private Integer id;
+    
     private String name;
-    private Integer telephoneNumber;
+    private String telephoneNumber;
     private String relation;
 
+    
     public String getName() {
         return name;
     }
@@ -35,12 +40,20 @@ public class ContactPersion implements Serializable{
         this.name = name;
     }
 
-    public Integer getTelephonenumber() {
+    public String getTelephoneNumber() {
         return telephoneNumber;
     }
 
-    public void setTelephonenumber(Integer telephonenumber) {
-        this.telephoneNumber = telephonenumber;
+    public void setTelephoneNumber(String telephoneNumber) {
+        this.telephoneNumber = telephoneNumber;
+    }
+
+    public String getRelation() {
+        return relation;
+    }
+
+    public void setRelation(String relation) {
+        this.relation = relation;
     }
 
     public Integer getId() {

@@ -18,6 +18,6 @@ public interface UserRepo extends JpaRepository<User, Integer>{
 
     public User findByEmail(String email);
     
-    public Page<User> findByNameTHOrEmail(String nameTH, String email, Pageable pageable);
+   // public Page<User> findByNameTHAIOrEmail(String namethai, String email, Pageable pageable);
     
 }

@@ -24,7 +24,6 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -35,7 +34,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 @Entity
 public class User implements Serializable, UserDetails {
 
-    
+    @Id
     @SequenceGenerator(name = "user", sequenceName = "user_SEQ", allocationSize = 1)
     @GeneratedValue(generator = "user", strategy = GenerationType.SEQUENCE)
     private Integer id;
@@ -44,7 +43,6 @@ public class User implements Serializable, UserDetails {
     @Column(name = "password", nullable = false)
     private String password;
 
-    @Id
     @Column(name = "email", nullable = false, unique = true)
     @NotBlank(message = "please input email")
     @Email(message = "format Incompatible (Ex. xxx@xxx.com)")
@@ -134,6 +132,14 @@ public class User implements Serializable, UserDetails {
 
     public Department getDepartment() {
         return department;
+    }
+
+    public ContactPersion getContactPersion() {
+        return contactPersion;
+    }
+
+    public void setContactPersion(ContactPersion contactPersion) {
+        this.contactPersion = contactPersion;
     }
 
     public void setDepartment(Department department) {

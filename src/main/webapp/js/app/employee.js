@@ -3,9 +3,6 @@ angular.module('employee')
         .controller('EmployeeController', function ($scope, $http) {
             $scope.departments = {};
             $scope.employee = {};
-            $scope.contact = {};
-            $scope.bankaccount = {};
-            $scope.authority = {};
             $scope.error = {};
             load();
             function clearData(){
@@ -19,14 +16,7 @@ angular.module('employee')
                 });
             }
             
-           $scope.Save = function (){
-               $scope.saveEmployee();
-               $scope.saveContact();
-               $scope.saveBankAccount();
-               
-           };
-            
-            
+          
             $scope.saveEmployee = function(){
                $http.post("/userssave",$scope.employee)
                   .success(function (data){
@@ -37,23 +27,5 @@ angular.module('employee')
                     $scope.error = data;
                 });
             };  
-            
-            $scope.saveContact = function (){
-            $http.post("/contactsave",$scope.contact)
-                .success(function (data){
-                  console.log(data);
-              }).error(function (data){
-                  
-              });  
-            };
-            
-            $scope.saveBankAccount = function (){
-                $http.post("/bankaccount",$scope.bankaccount)
-                        .success(function (data){
-                    
-                })
-                        .error(function (data){
-                    
-                });
-            };
+           
         });

@@ -541,18 +541,18 @@
                             </tr>
                             <tr class="trinput">
                                 <td class="tdinput"><label>Bank </label>
-                                    <input type="text" placeholder="Bank" class="form-control" ng-model="bankaccount.bankname"></td> 
+                                    <input type="text" placeholder="Bank" class="form-control" ng-model="employee.bankAccount.bankname"></td> 
                                 <td class="td"></td>
                                 <td class="tdinput"><label>Account Number </label>
-                                    <input type="text" placeholder="Account Number" class="form-control" ng-model="bankaccount.addcountid"></td> 
+                                    <input type="text" placeholder="Account Number" class="form-control" ng-model="employee.bankAccount.addcountid"></td> 
                                 <td class="td"></td>
                             </tr>
                             <tr class="trinput">
                                 <td class="tdinput"><label>Account Name </label>
-                                    <input type="text" placeholder="Account Name" class="form-control" ng-model="bankaccount.addcountname"></td> 
+                                    <input type="text" placeholder="Account Name" class="form-control" ng-model="employee.bankAccount.addcountname"></td> 
                                 <td class="td"></td>
                                 <td class="tdinput"><label>Account Type </label>
-                                    <input type="" placeholder="Account Type" class="form-control" ng-model="bankaccount.addcounttype"></td> 
+                                    <input type="" placeholder="Account Type" class="form-control" ng-model="employee.bankAccount.addcounttype"></td> 
                                 <td class="td"></td>
                             </tr>
                             <tr class="trinput">
@@ -563,15 +563,15 @@
                             </tr>
                             <tr class="trinput">
                                 <td class="tdinput"><label>Contact Name </label>
-                                    <input type="text" placeholder="Contact Name" class="form-control" ng-model="contact.name"></td> 
+                                    <input type="text" placeholder="Contact Name" class="form-control" ng-model="employee.contactPersion.name"></td> 
                                 <td class="td"></td>
                                 <td class="tdinput"><label>Relation </label>
-                                    <input type="text" placeholder="Relation" class="form-control" ng-model="contact.relation"></td> 
+                                    <input type="text" placeholder="Relation" class="form-control" ng-model="employee.contactPersion.relation"></td> 
                                 <td class="td"></td>
                             </tr>
                             <tr class="trinput">
                                 <td class="tdinput"><label>Phone Number </label>
-                                    <input type="text" placeholder="Phone Number" class="form-control" ng-model="contact.telephoneNumber"></td> 
+                                    <input type="text" placeholder="Phone Number" class="form-control" ng-model="employee.contactPersion.telephoneNumber"></td> 
                                 <td class="td"></td>
                                 <td class="tdinput"></td> 
                                 <td class="td"></td>
@@ -630,7 +630,7 @@
                 </div>
             </div>
 
-            <input id="btnsave" class="btn btn-primary" type="submit" value="Save" ng-click="Save()">
+            <input id="btnsave" class="btn btn-primary" type="submit" value="Save" ng-click="saveEmployee()">
 
         </div>
 
